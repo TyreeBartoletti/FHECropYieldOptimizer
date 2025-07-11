@@ -1,0 +1,73 @@
+{
+  "name": "confidential-crop-yield-optimizer",
+  "version": "1.0.0",
+  "description": "Agricultural Data Collaboration Platform with Fully Homomorphic Encryption",
+  "main": "index.html",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "test:gas": "REPORT_GAS=true npx hardhat test",
+    "test:coverage": "npx hardhat coverage",
+    "deploy": "npx hardhat run scripts/deploy.js --network sepolia",
+    "deploy:local": "npx hardhat run scripts/deploy.js --network localhost",
+    "verify": "npx hardhat run scripts/verify.js --network sepolia",
+    "interact": "npx hardhat run scripts/interact.js --network sepolia",
+    "simulate": "npx hardhat run scripts/simulate.js --network sepolia",
+    "lint": "npx solhint 'contracts/**/*.sol'",
+    "lint:fix": "npx solhint 'contracts/**/*.sol' --fix",
+    "format": "npx prettier --write 'contracts/**/*.sol' 'test/**/*.js' 'scripts/**/*.js'",
+    "clean": "npx hardhat clean && rm -rf cache artifacts",
+    "node": "npx hardhat node",
+    "start": "npx http-server . -p 3000 --cors",
+    "build": "echo 'No build step needed for static files'"
+  },
+  "keywords": [
+    "agriculture",
+    "fhe",
+    "fhevm",
+    "blockchain",
+    "privacy",
+    "optimization",
+    "zama",
+    "smart-contracts",
+    "fully-homomorphic-encryption",
+    "confidential-computing",
+    "agricultural-technology",
+    "data-collaboration"
+  ],
+  "author": "Agricultural Technology Solutions",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/confidential-crop-yield-optimizer.git"
+  },
+  "homepage": "https://your-username.github.io/confidential-crop-yield-optimizer",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@fhevm/solidity": "^0.9.0-1",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0",
+    "hardhat": "^2.22.16",
+    "hardhat-gas-reporter": "^1.0.9",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "^1.3.0",
+    "solhint": "^4.1.0",
+    "solidity-coverage": "^0.8.5",
+    "typechain": "^8.3.0"
+  },
+  "dependencies": {
+    "@zama-fhe/oracle-solidity": "^0.2.0"
+  }
+}
