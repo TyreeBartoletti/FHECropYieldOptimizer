@@ -2,7 +2,7 @@
 
 > Privacy-Preserving Agricultural Data Collaboration Platform
 
-[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://tyreebartoletti.github.io/fheCropYieldOptimizer/)
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Sepolia](https://img.shields.io/badge/network-Sepolia-purple)](https://sepolia.etherscan.io/)
 
@@ -14,7 +14,7 @@ This breakthrough platform allows agricultural cooperatives to collaborate on da
 
 ## 🎥 Demo
 
-**Live Application**: [https://tyreebartoletti.github.io/fheCropYieldOptimizer/](https://tyreebartoletti.github.io/fheCropYieldOptimizer/)
+**Live Application**: [https://tyreebartoletti.github.io/FHECropYieldOptimizer/](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)
 
 **Video Demonstration**: Available in the repository showcasing complete platform functionality and user workflow
 
@@ -148,7 +148,7 @@ Our platform ensures absolute privacy through:
 
 1. **Visit the Platform**
    ```
-   https://tyreebartoletti.github.io/fheCropYieldOptimizer/
+   https://tyreebartoletti.github.io/FHECropYieldOptimizer/
    ```
 
 2. **Connect Your Wallet**
@@ -183,8 +183,8 @@ Our platform ensures absolute privacy through:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/TyreeBartoletti/fheCropYieldOptimizer.git
-cd fheCropYieldOptimizer
+git clone https://github.com/TyreeBartoletti/FHECropYieldOptimizer.git
+cd FHECropYieldOptimizer
 ```
 
 ### Install Dependencies
@@ -314,7 +314,7 @@ For detailed testing documentation, see [TESTING.md](TESTING.md).
 ### Project Structure
 
 ```
-fheCropYieldOptimizer/
+FHECropYieldOptimizer/
 ├── contracts/              # Solidity smart contracts
 │   └── CropYieldOptimizer.sol
 ├── scripts/               # Deployment and interaction scripts
@@ -507,7 +507,7 @@ If you encounter issues not covered here:
 
 1. Check [TESTING.md](TESTING.md) for detailed test troubleshooting
 2. Review [Zama Documentation](https://docs.zama.ai/fhevm)
-3. Open an issue on [GitHub](https://github.com/TyreeBartoletti/fheCropYieldOptimizer/issues)
+3. Open an issue on [GitHub](https://github.com/TyreeBartoletti/FHECropYieldOptimizer/issues)
 4. Include:
    - Error message
    - Transaction hash (if applicable)
@@ -551,8 +551,8 @@ Encrypted Result → Gateway v2.0 Request → KMS Nodes → Decrypted Value (Use
 
 ## 🌐 Links
 
-- **Live Application**: [https://tyreebartoletti.github.io/fheCropYieldOptimizer/](https://tyreebartoletti.github.io/fheCropYieldOptimizer/)
-- **GitHub Repository**: [https://github.com/TyreeBartoletti/fheCropYieldOptimizer](https://github.com/TyreeBartoletti/fheCropYieldOptimizer)
+- **Live Application**: [https://tyreebartoletti.github.io/FHECropYieldOptimizer/](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)
+- **GitHub Repository**: [https://github.com/TyreeBartoletti/FHECropYieldOptimizer](https://github.com/TyreeBartoletti/FHECropYieldOptimizer)
 - **Smart Contract**: [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0xf2301736A15a5152401E968cB8d995c0F508f568)
 - **Testing Guide**: [TESTING.md](TESTING.md)
 - **Zama Documentation**: [https://docs.zama.ai/](https://docs.zama.ai/)
@@ -593,9 +593,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions, issues, or feedback:
-- Open an issue on [GitHub](https://github.com/TyreeBartoletti/fheCropYieldOptimizer/issues)
+- Open an issue on [GitHub](https://github.com/TyreeBartoletti/FHECropYieldOptimizer/issues)
 - Join our community discussions
-- Check the [FAQ section](https://tyreebartoletti.github.io/fheCropYieldOptimizer/#faq)
+- Check the [FAQ section](https://tyreebartoletti.github.io/FHECropYieldOptimizer/#faq)
 
 ---
 
