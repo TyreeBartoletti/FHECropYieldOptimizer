@@ -10,7 +10,7 @@
 
 A breakthrough agricultural collaboration platform that enables farms to share sensitive farming data for encrypted analysis, obtaining optimal crop yield recommendations **without exposing proprietary agricultural secrets**. Built with **Zama FHEVM** technology for the privacy-preserving agriculture future.
 
-🌐 **[Live Demo](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)** | 📹 **[Video Demo](./demo.mp4)** | 📄 **[Documentation](./docs/)**
+🌐 **[Live Demo](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)** | 📹 **[Video Demo demo.mp4]** | 📄 **[Documentation](./docs/)**
 
 ---
 
