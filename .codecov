@@ -1,0 +1,38 @@
+coverage:
+  status:
+    project:
+      default:
+        target: auto
+        threshold: 5%
+        base: auto
+    patch:
+      default:
+        target: auto
+        threshold: 5%
+        base: auto
+
+  precision: 2
+  round: down
+  range: "70...100"
+
+  ignore:
+    - "test/**/*"
+    - "scripts/**/*"
+    - "node_modules/**/*"
+    - "coverage/**/*"
+    - "artifacts/**/*"
+    - "cache/**/*"
+    - "typechain-types/**/*"
+
+comment:
+  layout: "reach,diff,flags,tree"
+  behavior: default
+  require_changes: false
+  require_base: false
+  require_head: true
+
+flags:
+  node18:
+    carryforward: true
+  node20:
+    carryforward: true
