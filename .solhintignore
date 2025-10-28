@@ -1,0 +1,15 @@
+# Directories
+node_modules/
+artifacts/
+cache/
+coverage/
+dist/
+typechain-types/
+
+# Third-party contracts
+contracts/lib/
+contracts/interfaces/IFHEVM.sol
+
+# Test contracts
+contracts/test/
+contracts/mocks/
