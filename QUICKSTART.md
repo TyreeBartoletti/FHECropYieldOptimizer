@@ -1,80 +1,129 @@
-# Quick Start Guide
+# 🚀 Quick Start Guide
 
-## 🚀 Get Started in 5 Minutes
+Get started with the Confidential Crop Yield Optimizer in 5 minutes.
 
-### Prerequisites
+## Prerequisites
 
-- Node.js >= 18.0.0
-- Git
-- MetaMask wallet (with Sepolia ETH)
+- Node.js v18+ installed
+- MetaMask wallet
+- Sepolia testnet ETH (get from [Sepolia Faucet](https://sepoliafaucet.com/))
 
-### Installation
+## Installation
 
 ```bash
-# 1. Clone the repository
-git clone https://github.com/TyreeBartoletti/fheCropYieldOptimizer.git
-cd fheCropYieldOptimizer
+# Clone the repository
+git clone <repository-url>
+cd FHECropYieldOptimizer
 
-# 2. Install dependencies
+# Install dependencies
 npm install
 
-# 3. Copy environment template
-cp .env.example .env
-
-# 4. Edit .env with your configuration
-# Add your SEPOLIA_RPC_URL, PRIVATE_KEY, etc.
+# Copy environment template
+cp env.example .env
 ```
 
-### Running Tests
+## Configuration
+
+Edit `.env` with your values:
+
+```env
+SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_API_KEY
+PRIVATE_KEY=your_private_key_without_0x
+ETHERSCAN_API_KEY=your_etherscan_api_key
+
+NUM_PAUSERS=3
+PAUSER_ADDRESS_0=0xAddress1
+PAUSER_ADDRESS_1=0xAddress2
+PAUSER_ADDRESS_2=0xAddress3
+KMS_GENERATION=1
+```
+
+## Development Workflow
+
+### 1. Compile Contracts
 
 ```bash
-# Run all tests
+npm run compile
+```
+
+### 2. Run Tests
+
+```bash
 npm test
-
-# Expected output: ✓ 60+ passing tests
 ```
 
-### Deploy to Sepolia
+### 3. Deploy to Sepolia
 
 ```bash
-# Deploy contract
 npm run deploy
+```
 
-# Verify on Etherscan
+### 4. Verify on Etherscan
+
+```bash
 npm run verify
 ```
 
-### Interact with Contract
+### 5. Interact with Contract
 
 ```bash
-# Query contract state
 npm run interact
+```
 
-# Run complete simulation
+### 6. Run Simulation
+
+```bash
 npm run simulate
 ```
 
-### Run Frontend
+## Available Scripts
 
-```bash
-# Start local server
-npm start
+| Command | Description |
+|---------|-------------|
+| `npm run compile` | Compile smart contracts |
+| `npm test` | Run test suite |
+| `npm run test:gas` | Run tests with gas reporting |
+| `npm run test:coverage` | Generate coverage report |
+| `npm run deploy` | Deploy to Sepolia |
+| `npm run deploy:local` | Deploy to local network |
+| `npm run verify` | Verify contract on Etherscan |
+| `npm run interact` | Interact with deployed contract |
+| `npm run simulate` | Run complete workflow simulation |
+| `npm run lint` | Lint Solidity code |
+| `npm run format` | Format code |
+| `npm run clean` | Clean build artifacts |
+| `npm run node` | Start local Hardhat node |
+| `npm start` | Start frontend dev server |
 
-# Open browser to http://localhost:3000
+## Project Structure
+
+```
+FHECropYieldOptimizer/
+├── contracts/          # Solidity smart contracts
+├── scripts/           # Hardhat scripts
+│   ├── deploy.js     # Deployment script
+│   ├── verify.js     # Verification script
+│   ├── interact.js   # Interaction script
+│   └── simulate.js   # Simulation script
+├── test/             # Test files
+├── hardhat.config.js # Hardhat configuration
+└── package.json      # npm scripts
 ```
 
-## 📚 Next Steps
+## Next Steps
 
-- Read [README.md](README.md) for detailed documentation
-- See [TESTING.md](TESTING.md) for testing guide
-- Check [PROJECT_IMPROVEMENTS.md](PROJECT_IMPROVEMENTS.md) for all improvements
+- Read [DEPLOYMENT.md](DEPLOYMENT.md) for detailed deployment guide
+- Read [TESTING.md](TESTING.md) for testing documentation
+- Read [README.md](README.md) for complete documentation
 
-## 🆘 Need Help?
+## Support
 
-- Check the [Troubleshooting](README.md#troubleshooting) section
-- Open an issue on [GitHub](https://github.com/TyreeBartoletti/fheCropYieldOptimizer/issues)
-- Review [Zama Documentation](https://docs.zama.ai/)
+For issues or questions:
+- Check [Troubleshooting](DEPLOYMENT.md#troubleshooting) section
+- Review contract on [Etherscan](https://sepolia.etherscan.io/)
+- Consult [Hardhat Documentation](https://hardhat.org/docs)
 
 ---
 
-**Ready to revolutionize agriculture with privacy-preserving technology!** 🌾
+**Version**: 2.0.0  
+**Framework**: Hardhat v2.22.16
