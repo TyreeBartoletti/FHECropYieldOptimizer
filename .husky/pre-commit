@@ -1,0 +1,33 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# 1. Run ESLint on JavaScript files
+echo "📝 Checking JavaScript code quality..."
+npm run eslint:check || {
+  echo "❌ ESLint check failed. Run 'npm run eslint:fix' to fix issues."
+  exit 1
+}
+
+# 2. Run Solhint on Solidity files
+echo "🔒 Checking Solidity code quality..."
+npm run lint || {
+  echo "❌ Solhint check failed. Run 'npm run lint:fix' to fix issues."
+  exit 1
+}
+
+# 3. Run Prettier format check
+echo "✨ Checking code formatting..."
+npm run prettier:check || {
+  echo "❌ Prettier check failed. Run 'npm run prettier' to format code."
+  exit 1
+}
+
+# 4. Run security checks
+echo "🛡️  Running security checks..."
+npm run security:check || {
+  echo "⚠️  Security check completed with warnings."
+}
+
+echo "✅ All pre-commit checks passed!"

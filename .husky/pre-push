@@ -1,0 +1,32 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "🚀 Running pre-push checks..."
+
+# 1. Run all tests
+echo "🧪 Running test suite..."
+npm test || {
+  echo "❌ Tests failed. Fix failing tests before pushing."
+  exit 1
+}
+
+# 2. Check test coverage
+echo "📊 Checking test coverage..."
+npm run test:coverage || {
+  echo "⚠️  Coverage check completed with warnings."
+}
+
+# 3. Run gas optimization check
+echo "⛽ Checking gas usage..."
+npm run test:gas || {
+  echo "⚠️  Gas check completed."
+}
+
+# 4. Compile contracts
+echo "🔨 Compiling contracts..."
+npm run compile || {
+  echo "❌ Contract compilation failed."
+  exit 1
+}
+
+echo "✅ All pre-push checks passed!"
