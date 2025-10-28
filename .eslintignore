@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+artifacts/
+cache/
+coverage/
+dist/
+typechain-types/
+
+# Configuration
+.eslintrc.js
+hardhat.config.js
+
+# Generated files
+*.log
+*.tsbuildinfo
+
+# Documentation
+docs/
+
+# Environment
+.env
+.env.local
+.env.*.local
