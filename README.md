@@ -10,7 +10,7 @@
 
 A breakthrough agricultural collaboration platform that enables farms to share sensitive farming data for encrypted analysis, obtaining optimal crop yield recommendations **without exposing proprietary agricultural secrets**. Built with **Zama FHEVM** technology for the privacy-preserving agriculture future.
 
-🌐 **[Live Demo](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)** | 📹 **[Video Demo demo.mp4]** | 📄 **[Documentation](./docs/)**
+🌐 **[Live Demo](https://tyreebartoletti.github.io/FHECropYieldOptimizer/)** | 📹 **[Video Demo demo.mp4]** | 📄 **[Documentation](./docs/)** | 🔧 **[SDK Integration Guide](./fheCropYieldOptimizer/SDK_INTEGRATION_GUIDE.md)**
 
 ---
 
@@ -30,6 +30,8 @@ A breakthrough agricultural collaboration platform that enables farms to share s
 
 ### 🚀 Advanced Technology
 - **Zama FHEVM Integration** - State-of-the-art Fully Homomorphic Encryption
+- **@fhevm/sdk Support** - Client-side FHE encryption/decryption with type safety
+- **Gateway v2.0 Protocol** - Latest FHE decryption gateway with EIP-712 signatures
 - **Blockchain-Based** - Decentralized Ethereum Sepolia deployment
 - **Web3 Ready** - Seamless MetaMask wallet integration
 - **Emergency Controls** - Multi-pauser system with owner-controlled recovery
@@ -50,13 +52,15 @@ A breakthrough agricultural collaboration platform that enables farms to share s
 ┌─────────────────────────────────────────────────────────────────┐
 │                     Frontend (HTML + JavaScript)                 │
 │  ├── MetaMask Integration (Web3 Wallet)                         │
-│  ├── Client-side FHE Encryption (Zama SDK)                      │
+│  ├── @fhevm/sdk (Client-side FHE Encryption/Decryption)        │
+│  ├── Ethers.js v6.10.0 (Web3 Provider - Latest)                │
 │  ├── Real-time Encrypted Data Display                           │
 │  └── Responsive UI with Farm Dashboard                          │
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
 │              Smart Contract (Solidity 0.8.24)                   │
+│  ├── @fhevm/solidity v0.9.0-1 (FHE Library)                    │
 │  ├── Encrypted Storage (euint32, euint8, ebool)                │
 │  ├── Homomorphic Operations (FHE.add, FHE.mul, FHE.ge)         │
 │  ├── Multi-Farm Analysis Engine                                 │
@@ -65,10 +69,19 @@ A breakthrough agricultural collaboration platform that enables farms to share s
 └─────────────────────────────────────────────────────────────────┘
                               ↓
 ┌─────────────────────────────────────────────────────────────────┐
+│                 Zama FHEVM Gateway v2.0                          │
+│  ├── Gateway Oracle (@zama-fhe/oracle-solidity v0.2.0)         │
+│  ├── EIP-712 Signature Verification                             │
+│  ├── KMS Node Coordination                                      │
+│  ├── Decryption Request Handling                                │
+│  └── Gateway Address: 0x33347831500F1e73f102414fAf8fD6b494F06a10│
+└─────────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────────┐
 │                      Zama FHEVM Layer                            │
 │  ├── Encrypted Computation (No Decryption Required)            │
 │  ├── Homomorphic Arithmetic Operations                          │
-│  └── Sepolia Testnet Deployment                                 │
+│  └── Sepolia Testnet Deployment (Chain ID: 11155111)           │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -99,19 +112,232 @@ Farm A (Private)          Farm B (Private)          Farm C (Private)
 
 ---
 
+## 📦 Technology Stack Details
+
+This project has been built with a comprehensive modern blockchain development stack, with significant upgrades from the initial prototype:
+
+### 🔄 Major Technology Upgrades
+
+| Component | Initial Version (fheCropYieldOptimizer) | Current Version (Main Project) | Improvement |
+|-----------|----------------------------------------|-------------------------------|-------------|
+| **Node.js** | >= 16.0.0 | >= 18.0.0 (LTS) | Stability & Performance |
+| **Ethers.js** | v5.7.2 | v6.10.0 | Major version upgrade with better TypeScript support |
+| **Hardhat** | v2.19.5 | v2.22.16 | Latest features & security patches |
+| **Testing** | Basic setup | 70 comprehensive tests | Production-ready test coverage |
+| **CI/CD** | None | GitHub Actions (Node 18.x, 20.x) | Automated testing & deployment |
+| **Type Safety** | None | TypeChain v8.3.0 | Full TypeScript type generation |
+| **Code Quality** | None | Prettier + Solhint + ESLint | Automated code quality checks |
+| **Git Hooks** | None | Husky pre-commit/pre-push | Prevent bad commits |
+| **Security Tools** | Basic | Custom security analysis suite | Enhanced security posture |
+| **Gas Optimization** | Basic | Gas reporter + optimization tools | Cost reduction analysis |
+
+### 🛠️ Complete Development Stack
+
+#### Smart Contract Development
+```yaml
+Core:
+  - Solidity: 0.8.24 (Latest stable)
+  - Hardhat: 2.22.16
+  - Hardhat Toolbox: 4.0.0 (All-in-one development toolkit)
+
+FHE Integration:
+  - @fhevm/solidity: 0.9.0-1 (Zama FHE primitives)
+  - @zama-fhe/oracle-solidity: 0.2.0 (Gateway v2.0)
+
+Type Safety:
+  - TypeChain: 8.3.0
+  - @typechain/hardhat: 9.0.0
+  - @typechain/ethers-v6: 0.5.0
+
+Testing Framework:
+  - Chai: 4.3.10
+  - Chai Matchers: 2.0.0
+  - Network Helpers: 1.0.0
+  - Gas Reporter: 1.0.9
+```
+
+#### Frontend & Web3
+```yaml
+Web3 Stack:
+  - Ethers.js: 6.10.0 (Latest with modern async/await)
+  - @fhevm/sdk: workspace:* (Client-side FHE encryption)
+  - MetaMask: Latest browser extension
+
+Frontend:
+  - HTML5, CSS3, JavaScript ES6+
+  - Responsive design (mobile-friendly)
+  - Real-time blockchain data updates
+
+Development Server:
+  - http-server (port 3000)
+  - CORS enabled for local testing
+```
+
+#### Code Quality & Testing
+```yaml
+Testing:
+  - Test Cases: 70 comprehensive tests
+  - Coverage: Solidity-coverage 0.8.5
+  - Framework: Mocha + Chai + Hardhat
+
+Linting:
+  - Solidity: Solhint 4.1.0
+  - JavaScript: ESLint with modern config
+
+Formatting:
+  - Prettier: 3.0.0
+  - prettier-plugin-solidity: 1.3.0
+
+Automation:
+  - Husky: Git hooks
+  - Pre-commit: Format check + lint
+  - Pre-push: Full test suite
+  - Commit-msg: Conventional commits
+```
+
+#### Security & Performance
+```yaml
+Security:
+  - Custom security analysis scripts
+  - Access control verification
+  - Reentrancy protection checks
+  - Input validation analysis
+
+Performance:
+  - Gas optimization (800 compiler runs)
+  - Performance benchmarking suite
+  - Gas analysis and reporting
+
+Configuration:
+  - dotenv: 16.3.1 (Environment management)
+  - Multi-environment support
+```
+
+#### CI/CD Pipeline
+```yaml
+Platform: GitHub Actions
+
+Test Matrix:
+  - Node.js: 18.x, 20.x
+  - OS: Ubuntu latest
+
+Workflows:
+  - Linting: Solidity + JavaScript
+  - Formatting: Prettier checks
+  - Security: Automated security analysis
+  - Testing: Full 70-test suite
+  - Gas Reporting: Cost analysis
+  - Coverage: Upload to Codecov
+```
+
+### 📊 Dependency Comparison
+
+#### Development Dependencies (Complete List)
+```json
+{
+  "devDependencies": {
+    "@fhevm/solidity": "^0.9.0-1",
+    "@nomicfoundation/hardhat-toolbox": "^4.0.0",
+    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
+    "@nomicfoundation/hardhat-ethers": "^3.0.0",
+    "@nomicfoundation/hardhat-network-helpers": "^1.0.0",
+    "@nomicfoundation/hardhat-verify": "^2.0.0",
+    "@typechain/ethers-v6": "^0.5.0",
+    "@typechain/hardhat": "^9.0.0",
+    "@types/chai": "^4.3.5",
+    "@types/mocha": "^10.0.1",
+    "chai": "^4.3.10",
+    "dotenv": "^16.3.1",
+    "ethers": "^6.10.0",
+    "hardhat": "^2.22.16",
+    "hardhat-gas-reporter": "^1.0.9",
+    "prettier": "^3.0.0",
+    "prettier-plugin-solidity": "^1.3.0",
+    "solhint": "^4.1.0",
+    "solidity-coverage": "^0.8.5",
+    "typechain": "^8.3.0"
+  }
+}
+```
+
+#### Production Dependencies
+```json
+{
+  "dependencies": {
+    "@zama-fhe/oracle-solidity": "^0.2.0"
+  }
+}
+```
+
+#### Workspace Dependencies
+```json
+{
+  "workspaceReferences": {
+    "@fhevm/sdk": "workspace:*"
+  }
+}
+```
+
+### 🎯 Key Technology Benefits
+
+#### Ethers.js v6 Upgrades
+- ✅ Better TypeScript support out of the box
+- ✅ Improved error handling and debugging
+- ✅ Modern async/await patterns
+- ✅ Better BigInt support
+- ✅ Enhanced provider capabilities
+
+#### TypeChain Integration
+- ✅ Full TypeScript type safety for contract interactions
+- ✅ Auto-generated types from ABIs
+- ✅ Compile-time error detection
+- ✅ Better IDE autocomplete
+
+#### Comprehensive Testing
+- ✅ 70 test cases covering all functionality
+- ✅ Gateway v2.0 complete integration tests
+- ✅ Access control verification
+- ✅ Gas optimization validation
+- ✅ Edge case coverage
+
+#### Automated Quality
+- ✅ Pre-commit hooks prevent bad code
+- ✅ Consistent code formatting
+- ✅ Automated security checks
+- ✅ Multi-version Node.js testing
+
+---
+
 ## 🚀 Quick Start
 
 ### Prerequisites
 
 ```bash
-# Required
-- Node.js >= 18.0.0
-- MetaMask browser extension
-- Sepolia ETH (for gas fees)
+# Required Runtime
+- Node.js >= 18.0.0 (LTS recommended, tested on 18.x and 20.x)
+- MetaMask browser extension (latest version)
+- Sepolia ETH (for gas fees - get from faucet)
 
-# Optional for development
-- Git
-- Hardhat
+# Development Tools
+- Git (version control)
+- NPM or Yarn (package manager)
+- Modern web browser (Chrome, Firefox, Brave)
+- Code editor (VS Code recommended)
+
+# Key Dependencies (auto-installed via npm install)
+- Hardhat v2.22.16 (Smart contract development)
+- Ethers.js v6.10.0 (Web3 interactions)
+- @fhevm/solidity v0.9.0-1 (FHE library)
+- @fhevm/sdk (Client-side encryption - workspace)
+- @zama-fhe/oracle-solidity v0.2.0 (Gateway integration)
+
+# Testing & Quality Tools
+- Mocha + Chai (Testing framework)
+- Solhint v4.1.0 (Solidity linter)
+- ESLint (JavaScript linter)
+- Prettier v3.0.0 (Code formatter)
+- Solidity-coverage v0.8.5 (Coverage reporting)
+- TypeChain v8.3.0 (Type generation)
 ```
 
 ### Installation
@@ -771,35 +997,56 @@ copies of the Software...
 
 ### Smart Contract Layer
 - **Solidity**: 0.8.24 (Latest stable)
-- **FHE Library**: @fhevm/solidity v0.9.0
-- **Development**: Hardhat v2.22.16
-- **Testing**: Mocha + Chai (70 tests)
-- **Coverage**: Solidity-coverage
-- **Linting**: Solhint + ESLint
-- **Optimization**: 800 runs, Yul enabled
+- **FHE Library**: @fhevm/solidity v0.9.0-1
+- **Gateway Oracle**: @zama-fhe/oracle-solidity v0.2.0
+- **Development**: Hardhat v2.22.16 (Latest)
+- **Testing**: Mocha + Chai (70 comprehensive tests)
+- **Coverage**: Solidity-coverage v0.8.5
+- **Linting**: Solhint v4.1.0 + ESLint
+- **Optimization**: 200-800 runs, Yul enabled
+- **Toolbox**: @nomicfoundation/hardhat-toolbox v4.0.0
+- **Type Safety**: TypeChain v8.3.0 + @typechain/hardhat v9.0.0
 
 ### Frontend
 - **Core**: HTML5, CSS3, JavaScript ES6+
-- **Web3**: Ethers.js v5.7.2
-- **Wallet**: MetaMask integration
-- **Hosting**: GitHub Pages
-- **Styling**: Responsive design, mobile-friendly
+- **Web3**: Ethers.js v6.10.0 (Latest major version)
+- **FHE SDK**: @fhevm/sdk (workspace integration for client-side encryption)
+- **Wallet**: MetaMask Web3 integration
+- **Hosting**: GitHub Pages (Static deployment)
+- **Styling**: Responsive design, mobile-friendly UI
+- **SDK Integration**: Client-side FHE encryption/decryption with type safety
+- **Dev Server**: http-server with CORS support
 
 ### Infrastructure
-- **Blockchain**: Ethereum Sepolia (Chain ID: 11155111)
+- **Blockchain**: Ethereum Sepolia Testnet (Chain ID: 11155111)
 - **Encryption**: Zama FHEVM Gateway v2.0
-- **Deployment**: Hardhat Deploy
-- **Verification**: Hardhat Verify + Etherscan
-- **CI/CD**: GitHub Actions (Node 18.x, 20.x)
-- **Coverage**: Codecov integration
+- **Gateway Address**: 0x33347831500F1e73f102414fAf8fD6b494F06a10
+- **Deployment**: Hardhat Deploy with automated scripts
+- **Verification**: Hardhat Verify + Etherscan API integration
+- **CI/CD**: GitHub Actions (Node 18.x, 20.x multi-version testing)
+- **Coverage**: Codecov integration with automated reporting
+- **HTTP Server**: npx http-server with port 3000 and CORS
 
 ### Development Tools
 - **Version Control**: Git + GitHub
-- **Package Manager**: NPM
-- **Code Quality**: Prettier + Solhint + ESLint
-- **Pre-commit**: Husky hooks
-- **Testing**: Hardhat Test + Gas Reporter
-- **Security**: Custom security analysis scripts
+- **Package Manager**: NPM (Node >= 18.0.0)
+- **Code Quality**:
+  - Prettier v3.0.0 (Code formatting)
+  - Solhint v4.1.0 (Solidity linting)
+  - ESLint (JavaScript linting)
+  - prettier-plugin-solidity v1.3.0
+- **Pre-commit Hooks**: Husky with automated format checking
+- **Testing Framework**:
+  - Hardhat Test environment
+  - Hardhat Gas Reporter v1.0.9
+  - Hardhat Network Helpers v1.0.0
+  - Chai matchers v2.0.0
+- **Security Tools**:
+  - Custom security analysis scripts
+  - Gas optimization analyzer
+  - Performance testing suite
+- **Environment**: dotenv v16.3.1 for configuration management
+- **Build Tools**: Native Hardhat compilation (no additional bundlers needed)
 
 ---
 
